@@ -26,4 +26,11 @@ echo "Building $venv"
 mkdir -p $venv
 python3 -m virtualenv --python=/usr/bin/python3 $venv
 $venv/bin/pip install $packages
+if [ "$1" = "tar" ]
+then
+echo "Taring.. $(echo $venv | cut -b2- | sed 's#/#-#g' | sed -r 's#(.*)-#\1#g').tar"
 tar cf /out/$(echo $venv | cut -b2- | sed 's#/#-#g' | sed -r 's#(.*)-#\1#g').tar $venv
+else
+echo "Copying venv."
+cp -r $venv /out/
+fi
