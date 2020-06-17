@@ -2,13 +2,14 @@
 
 function usage () {
     echo "Usage:"
-    echo "docker run -it --rm -e packages=\"<list of pip packages>\" -e venvname=<name of venv> [-e venvpath=<path to \$venevname] -v <tarfile save dir>:/out venevbuilder"
+    echo "docker run -it --rm -e packages=\"<list of pip packages>\" -e venvname=<name of venv> [-e venvpath=<path to \$venevname] -v <tarfile save dir>:/out venevbuilder [tar]"
     echo "venvpath defaults to \"/opt/venvs/\""
+    echo "argument 'tar' to create tarfile instead of just copying."
     exit 1
 }
 
 
-if [ -z $packages ] || [ -z $venvname ] 
+if [ "$packages" == "" ] || [ -z $venvname ] 
     then
     usage
 fi
