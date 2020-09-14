@@ -25,7 +25,9 @@ fi
 
 echo "Building $venv"
 mkdir -p $venv
-python3 -m virtualenv --python=/usr/bin/python3 $venv
+#python -m virtualenv --python=/usr/bin/python3 $venv
+virtualenv $venv
+#$venv/bin/pip install --upgrade pip
 $venv/bin/pip install $packages
 if [ "$1" = "tar" ]
 then

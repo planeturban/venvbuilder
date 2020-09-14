@@ -8,9 +8,8 @@ RUN yum -y update && yum -y install epel-release && yum -y install https://repo.
     git2u-core \
     make \
     nodejs \
-    python36-setuptools \
-    python36-virtualenv \
-    rsync && \
+    python-setuptools \
+    python-virtualenv && \
     mkdir /app
 
 ENV venvname ""
